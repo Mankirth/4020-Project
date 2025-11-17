@@ -1,0 +1,562 @@
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ============================================
+   HEADER STYLES
+   ============================================ */
+header {
+    background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.1em;
+    opacity: 1;
+    letter-spacing: 1px;
+    color: #ecf0f1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: 10px auto;
+}
+
+/* ============================================
+   NAVIGATION STYLES
+   ============================================ */
+nav {
+    background-color: #34495e;
+    padding: 15px 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 5px;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover {
+    color: #3498db;
+    border-bottom-color: #3498db;
+}
+
+/* ============================================
+   MAIN CONTENT STYLES
+   ============================================ */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.page.active {
+    display: block;
+}
+
+/* ============================================
+   HEADING STYLES
+   ============================================ */
+h1 {
+    color: #2c3e50;
+    font-size: 2em;
+    margin: 30px 0 15px 0;
+}
+
+h2 {
+    color: #34495e;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    margin: 25px 0 15px 0;
+    font-size: 1.8em;
+}
+
+h3 {
+    color: #2c3e50;
+    margin: 20px 0 10px 0;
+    font-size: 1.4em;
+}
+
+h4 {
+    color: #34495e;
+    margin: 15px 0 8px 0;
+    font-size: 1.1em;
+}
+
+/* ============================================
+   PROFILE SECTION
+   ============================================ */
+.profile-section {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #ecf0f1 0%, #f8f9fa 100%);
+    border-radius: 8px;
+}
+
+.profile-section h1 {
+    margin-top: 20px;
+    font-size: 2.2em;
+}
+
+.profile-section p {
+    font-size: 1.05em;
+    margin: 10px 0;
+    color: #555;
+}
+
+.profile-section p strong {
+    color: #2c3e50;
+}
+
+.profile-section img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 20px 0;
+    border: 4px solid #3498db;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.profile-section img:hover {
+    transform: scale(1.05);
+}
+
+/* ============================================
+   LIST STYLES
+   ============================================ */
+ul, ol {
+    margin: 20px 0 20px 30px;
+}
+
+li {
+    margin: 10px 0;
+    line-height: 1.8;
+}
+
+li strong {
+    color: #2c3e50;
+}
+
+/* ============================================
+   DATASET OVERVIEW STYLES
+   ============================================ */
+.dataset-overview {
+    background: linear-gradient(135deg, #ecf0f1 0%, #e8eef2 100%);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    border-left: 5px solid #3498db;
+}
+
+.dataset-overview p {
+    margin: 15px 0 10px 0;
+    font-weight: 600;
+}
+
+.dataset-overview ul {
+    margin: 10px 0 10px 30px;
+}
+
+.dataset-overview li {
+    margin: 8px 0;
+}
+
+/* ============================================
+   PARAGRAPH & TEXT STYLES
+   ============================================ */
+p {
+    margin: 15px 0;
+    text-align: justify;
+    line-height: 1.8;
+    color: #444;
+}
+
+em {
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+strong {
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+/* ============================================
+   ASSISTANT CHARACTER STYLES
+   ============================================ */
+.assistant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 280px;
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.3);
+    z-index: 1000;
+    animation: slideIn 0.5s ease-out;
+    border: 2px solid #2980b9;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.assistant h4 {
+    margin: 0 0 12px 0;
+    color: white;
+    font-size: 1.1em;
+}
+
+.assistant p {
+    margin: 0;
+    font-size: 0.95em;
+    line-height: 1.6;
+    text-align: left;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* ============================================
+   WEBSOCKET BOX STYLES
+   ============================================ */
+.websocket-box {
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    border: 2px solid #3498db;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.websocket-box h4 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.message-display {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    min-height: 80px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    border: 2px solid #bdc3c7;
+    font-size: 0.95em;
+}
+
+.message-display p {
+    margin: 8px 0;
+    color: #2c3e50;
+    text-align: left;
+}
+
+.message-display p:first-child {
+    margin-top: 0;
+}
+
+.message-display p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   FORM ELEMENTS STYLES
+   ============================================ */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+button {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1f618d 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   FOOTER STYLES
+   ============================================ */
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 8px 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+footer p:first-child {
+    font-size: 1.05em;
+    font-weight: 600;
+}
+
+footer p:last-child {
+    font-size: 0.95em;
+    opacity: 0.8;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header p {
+        font-size: 0.95em;
+    }
+
+    main {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    h3 {
+        font-size: 1.1em;
+    }
+
+    nav a {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+
+    .assistant {
+        bottom: 10px;
+        right: 10px;
+        max-width: 250px;
+        padding: 15px;
+    }
+
+    .profile-section img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 20px 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header p {
+        font-size: 0.85em;
+    }
+
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    nav {
+        padding: 10px 5px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 0.8em;
+    }
+
+    h1 {
+        font-size: 1.4em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .profile-section {
+        padding: 20px;
+    }
+
+    .profile-section img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .assistant {
+        max-width: 200px;
+        font-size: 0.85em;
+    }
+
+    .websocket-box {
+        padding: 15px;
+    }
+
+    .websocket-box button {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}
+
+/* ============================================
+   WEBSOCKET MESSAGE STYLES
+   ============================================ */
+.ws-message {
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.ws-sent {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 3px solid #28a745;
+}
+
+.ws-echo {
+    background-color: #cfe2ff;
+    color: #084298;
+    border-left: 3px solid #0d6efd;
+}
+
+.ws-broadcast {
+    background-color: #fff3cd;
+    color: #997404;
+    border-left: 3px solid #ffc107;
+}
+
+.ws-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 3px solid #28a745;
+}
+
+.ws-error {
+    background-color: #f8d7da;
+    color: #842029;
+    border-left: 3px solid #dc3545;
+}
+
+.ws-warning {
+    background-color: #fff3cd;
+    color: #997404;
+    border-left: 3px solid #ffc107;
+}
+
+.ws-info {
+    background-color: #e2e3e5;
+    color: #383d41;
+    border-left: 3px solid #6c757d;
+}
