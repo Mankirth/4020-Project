@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "chartjs": "^0.3.24",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "kill-port": "^2.0.1",
+    "mongodb": "^7.0.0",
+    "mongoose": "^8.19.4",
+    "openai": "^6.9.0",
+    "ws": "^8.18.3"
+  }
+}
