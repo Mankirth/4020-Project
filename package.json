@@ -1,12 +1,29 @@
 {
+  "name": "chatgpt-efficiency-validator",
+  "version": "1.0.0",
+  "description": "Multi-page interactive website analyzing ChatGPT efficiency across multiple domains",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "chatgpt",
+    "efficiency",
+    "api",
+    "websocket",
+    "express",
+    "node.js"
+  ],
+  "author": "Mel Meneses",
+  "license": "MIT",
   "dependencies": {
-    "chartjs": "^0.3.24",
-    "cors": "^2.8.5",
-    "express": "^5.1.0",
-    "kill-port": "^2.0.1",
-    "mongodb": "^7.0.0",
-    "mongoose": "^8.19.4",
-    "openai": "^6.9.0",
-    "ws": "^8.18.3"
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
