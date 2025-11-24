@@ -25,232 +25,229 @@
     </nav>
 
     <!-- MAIN CONTENT -->
-    <main id="app">
-        <!-- HOME PAGE -->
-        <div id="home" class="page active">
-            <div class="profile-section">
-                <h1>Mel, Mankirt and Mustafa</h1>
-                <p><strong>4th Year IT Students</strong> | York University</p>
-                <p><strong>Specialization:</strong> Information Technology</p>
-                <img src="images/ProfilePicture.jpg" alt="Profile Photo">
+<main id="app">
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <div class="profile-section">
+            <h1>Mel, Mankirt and Mustafa</h1>
+            <p><strong>4th Year IT Students</strong> | York University</p>
+            <p><strong>Specialization:</strong> Information Technology</p>
+            <img src="images/ProfilePicture.jpg" alt="Profile Photo">
+        </div>
+
+        <h2>Project Overview</h2>
+        <p>
+            This project blends web development, API integration, and data visualization to analyze ChatGPT's efficiency
+            across multiple domains. We have created a multi-page interactive website that documents methodology, integrates Node.js
+            middleware and WebSocket functionalities, and presents accuracy and performance insights using MongoDB and
+            the ChatGPT API.
+        </p>
+
+        <h2>Introduction</h2>
+        <p>
+            ChatGPT has become a transformative tool in various fields, from education to professional work. However, understanding its
+            efficiency across different knowledge domains—such as History, Social Science, and Computer Security—is crucial for informed
+            adoption. This project measures ChatGPT's response accuracy, latency, and consistency across these domains to provide
+            actionable insights.
+        </p>
+
+        <h2>Research Approach</h2>
+        <ul>
+            <li><strong>Backend:</strong> Node.js with Express.js middleware</li>
+            <li><strong>Database:</strong> MongoDB for storing evaluation results</li>
+            <li><strong>API:</strong> ChatGPT API for prompt evaluation</li>
+            <li><strong>Real-time Communication:</strong> WebSocket (ws) for live updates</li>
+            <li><strong>Frontend:</strong> HTML5, CSS3, Vanilla JavaScript with client-side routing</li>
+        </ul>
+
+        <h2>Dataset Overview</h2>
+        <div class="dataset-overview">
+            <p><strong>Evaluation Domains:</strong></p>
+            <ul>
+                <li><strong>History:</strong> Questions on historical events, figures, and timelines</li>
+                <li><strong>Social Science:</strong> Questions on sociology, psychology, economics, and political science</li>
+                <li><strong>Computer Security:</strong> Questions on cybersecurity concepts, threats, defenses, and best practices</li>
+            </ul>
+            <p><strong>Metrics Collected:</strong></p>
+            <ul>
+                <li>Response Time (latency)</li>
+                <li>Accuracy Score (manual evaluation)</li>
+                <li>Completeness of Response</li>
+                <li>Relevance to Query</li>
+            </ul>
+        </div>
+
+        <h2>Results Section</h2>
+        <div id="resultsSection">
+            <p><em>Performance analysis across domains will appear below.</em></p>
+            <canvas id="accuracyChart" width="400" height="200"></canvas>
+            <canvas id="responseChart" width="400" height="200"></canvas>
+            <button id="resetSessionBtn">Start New Session</button>
+        </div>
+    </div> <!-- end of HOME PAGE -->
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <h2>About Us</h2>
+        <p>
+            We are 4th-year IT undergraduate students at York University with a strong focus on programming,
+            web development and other IT related fields. Throughout our academic journey, we've developed a passion for building secure, efficient,
+            and user-friendly applications.
+        </p>
+
+        <h2>Academic Background</h2>
+        <p>At York University, we've completed coursework topics related to:</p>
+        <ul>
+            <li>Web Development</li>
+            <li>Network Security</li>
+            <li>Database Management Systems</li>
+            <li>Programming & Project Management</li>
+            <li>Data Structures & Algorithms</li>
+            <li>Operating Systems</li>
+        </ul>
+
+        <h2>Professional Interests</h2>
+        <p>We're particularly interested in:</p>
+        <ul>
+            <li>Web Application Security</li>
+            <li>API Design & Integration</li>
+            <li>Real-time Communication Systems</li>
+            <li>Data Analysis & Visualization</li>
+            <li>Cloud Architecture & DevOps</li>
+        </ul>
+    </div> <!-- end of ABOUT PAGE -->
+
+    <!-- EDUCATION PAGE -->
+    <div id="education" class="page">
+        <h2>Education</h2>
+        <h3>York University</h3>
+        <p><strong>Bachelor of Arts in Information Technology</strong></p>
+        <p><strong>Year:</strong> 4th Year</p>
+        <p><strong>Focus:</strong> Web Development</p>
+
+        <h2>Key Courses</h2>
+        <ul>
+            <li>Web Application Development</li>
+            <li>Cybersecurity Fundamentals</li>
+            <li>Database Design & Management</li>
+            <li>Advanced Software Engineering</li>
+            <li>Networks & Protocols</li>
+            <li>Server-Side Programming</li>
+            <li>Client-Side Web Development</li>
+        </ul>
+
+        <h2>Skills & Certifications</h2>
+        <ul>
+            <li><strong>Languages:</strong> JavaScript, Python, Java, SQL, HTML5, CSS3</li>
+            <li><strong>Frameworks & Libraries:</strong> Node.js, Express.js, MongoDB, WebSockets</li>
+            <li><strong>Tools:</strong> Git, GitHub, VS Code, Postman, Docker</li>
+            <li><strong>Specializations:</strong> Cybersecurity, API Security, Web Security</li>
+        </ul>
+    </div> <!-- end of EDUCATION PAGE -->
+
+    <!-- EXPERIENCE PAGE -->
+    <div id="experience" class="page">
+        <h2>Professional Experience</h2>
+        <h3>Academic Project: ChatGPT Efficiency Analysis</h3>
+        <p><strong>Role:</strong> Full-Stack Developer & Researcher</p>
+        <p><strong>Duration:</strong> Current (2025)</p>
+        <p><strong>Responsibilities:</strong></p>
+        <ul>
+            <li>Designed and developed multi-page interactive website using HTML5, CSS3, and Vanilla JavaScript</li>
+            <li>Implemented client-side routing with hash-based navigation</li>
+            <li>Created Express.js middleware for API integration and data validation</li>
+            <li>Integrated WebSocket technology for real-time communication</li>
+            <li>Connected MongoDB for persistent data storage</li>
+            <li>Implemented ChatGPT API integration for performance evaluation</li>
+        </ul>
+
+        <h3>Technical Skills Demonstrated</h3>
+        <ul>
+            <li>Full-stack web development (frontend & backend)</li>
+            <li>API design and integration</li>
+            <li>Real-time communication protocols</li>
+            <li>Database design and management</li>
+            <li>Responsive web design and user experience</li>
+        </ul>
+    </div> <!-- end of EXPERIENCE PAGE -->
+
+    <!-- PROJECT PAGE -->
+    <div id="project" class="page">
+        <h2>Project: ChatGPT Efficiency Analysis</h2>
+        <h2>Objective</h2>
+        <p>
+            This project creates a comprehensive web-based platform to analyze ChatGPT's efficiency, accuracy, and performance
+            across multiple domains (History, Social Science, Computer Security). The website integrates modern web technologies
+            including Node.js middleware, WebSocket communication, and MongoDB database management.
+        </p>
+
+        <h2>Technical Architecture</h2>
+        <h3>Frontend</h3>
+        <ul>
+            <li><strong>Client-Side Routing:</strong> Hash-based navigation (#/about, #/education, #/experience, #/project)</li>
+            <li><strong>Dynamic Character:</strong> Animated assistant providing tips and project information</li>
+            <li><strong>Responsive Design:</strong> Works seamlessly on desktop and mobile devices</li>
+            <li><strong>WebSocket Integration:</strong> Real-time message display and status updates</li>
+        </ul>
+
+        <h3>Backend</h3>
+        <ul>
+            <li><strong>Express.js Server:</strong> Handles HTTP requests and middleware processing</li>
+            <li><strong>API Route:</strong> /api/add?a=2&b=3 validates inputs and returns computed results</li>
+            <li><strong>WebSocket Server:</strong> Manages real-time bidirectional communication</li>
+            <li><strong>MongoDB Integration:</strong> Persists evaluation data and chat history</li>
+        </ul>
+
+        <h2>Key Features</h2>
+        <ul>
+            <li>✅ Multi-page interactive website with smooth navigation</li>
+            <li>✅ Animated assistant character with rotating tips</li>
+            <li>✅ Express middleware for API calculations</li>
+            <li>✅ WebSocket real-time communication</li>
+            <li>✅ Responsive, professional design</li>
+            <li>✅ GitHub Pages deployment</li>
+        </ul>
+
+        <h2>Evaluation Metrics</h2>
+        <p>The project will track:</p>
+        <ul>
+            <li>ChatGPT response latency across domains</li>
+            <li>Accuracy scores for different question types</li>
+            <li>Response completeness and relevance</li>
+            <li>Domain-specific performance trends</li>
+        </ul>
+
+        <!-- WEBSOCKET INTEGRATION SECTION -->
+        <div class="websocket-box">
+            <h3>🔌 Real-Time Communication (WebSocket)</h3>
+            <p>
+                This section demonstrates real-time bidirectional communication between the client and server using WebSocket technology.
+                Messages are instantly transmitted and displayed without page reloads.
+            </p>
+
+            <p><strong>Connection Status:</strong> <span id="websocketStatus" style="color: #dc3545; font-weight: bold;">● Disconnected</span></p>
+
+            <h4>Message Display:</h4>
+            <div class="message-display" id="websocketMessages">
+                <p><em>Waiting for connection...</em></p>
             </div>
 
-            <h2>Project Overview</h2>
-            <p>
-                This project blends web development, API integration, and data visualization to analyze ChatGPT's efficiency
-                across multiple domains. We have created a multi-page interactive website that documents methodology, integrates Node.js
-                middleware and WebSocket functionalities, and presents accuracy and performance insights using MongoDB and
-                the ChatGPT API.
-            </p>
+            <h4>Send a Message:</h4>
+            <input 
+                type="text" 
+                id="websocketInput" 
+                placeholder="Type a message and press Enter or click Send (Ctrl+Enter to send)..."
+                onkeypress="if(event.key==='Enter') sendMessage()"
+            >
 
-            <h2>Introduction</h2>
-            <p>
-                ChatGPT has become a transformative tool in various fields, from education to professional work. However, understanding its
-                efficiency across different knowledge domains—such as History, Social Science, and Computer Security—is crucial for informed
-                adoption. This project measures ChatGPT's response accuracy, latency, and consistency across these domains to provide
-                actionable insights.
-            </p>
-
-            <h2>Research Approach</h2>
-            <p><strong>Tools & Technologies:</strong></p>
-            <ul>
-                <li><strong>Backend:</strong> Node.js with Express.js middleware</li>
-                <li><strong>Database:</strong> MongoDB for storing evaluation results</li>
-                <li><strong>API:</strong> ChatGPT API for prompt evaluation</li>
-                <li><strong>Real-time Communication:</strong> WebSocket (ws) for live updates</li>
-                <li><strong>Frontend:</strong> HTML5, CSS3, Vanilla JavaScript with client-side routing</li>
-            </ul>
-
-            <h2>Dataset Overview</h2>
-            <div class="dataset-overview">
-                <p><strong>Evaluation Domains:</strong></p>
-                <ul>
-                    <li><strong>History:</strong> Questions on historical events, figures, and timelines</li>
-                    <li><strong>Social Science:</strong> Questions on sociology, psychology, economics, and political science</li>
-                    <li><strong>Computer Security:</strong> Questions on cybersecurity concepts, threats, defenses, and best practices</li>
-                </ul>
-                <p><strong>Metrics Collected:</strong></p>
-                <ul>
-                    <li>Response Time (latency)</li>
-                    <li>Accuracy Score (manual evaluation)</li>
-                    <li>Completeness of Response</li>
-                    <li>Relevance to Query</li>
-                </ul>
-            </div>
-
-            <h2>Results Section</h2>
-            <p><em>Charts and visualizations will be included in Part 2. Placeholder for performance analysis across domains.</em></p>
-        </div>
-
-        <!-- ABOUT PAGE -->
-        <div id="about" class="page">
-            <h2>About Us</h2>
-            <p>
-                We are 4th-year IT undergraduate students at York University with a strong focus on programming,
-                web development and other IT related fields. Throughout our academic journey, we've developed a passion for building secure, efficient,
-                and user-friendly applications.
-            </p>
-
-            <h2>Academic Background</h2>
-            <p>
-                At York University, We've completed coursework topics related to:
-            </p>
-            <ul>
-                <li>Web Development</li>
-                <li>Network Security</li>
-                <li>Database Management Systems</li>
-                <li>Programming & Project Management</li>
-                <li>Data Structures & Algorithms</li>
-                <li>Operating Systems</li>
-            </ul>
-
-            <h2>Professional Interests</h2>
-            <p>
-                We're particularly interested in:
-            </p>
-            <ul>
-                <li>Web Application Security</li>
-                <li>API Design & Integration</li>
-                <li>Real-time Communication Systems</li>
-                <li>Data Analysis & Visualization</li>
-                <li>Cloud Architecture & DevOps</li>
-            </ul>
-        </div>
-
-        <!-- EDUCATION PAGE -->
-        <div id="education" class="page">
-            <h2>Education</h2>
-            
-            <h3>York University</h3>
-            <p><strong>Bachelor of Arts in Information Technology</strong></p>
-            <p><strong>Year:</strong> 4th Year</p>
-            <p><strong>Focus:</strong> Web Development</p>
-            
-            <h2>Key Courses</h2>
-            <ul>
-                <li>Web Application Development</li>
-                <li>Cybersecurity Fundamentals</li>
-                <li>Database Design & Management</li>
-                <li>Advanced Software Engineering</li>
-                <li>Networks & Protocols</li>
-                <li>Server-Side Programming</li>
-                <li>Client-Side Web Development</li>
-            </ul>
-
-            <h2>Skills & Certifications</h2>
-            <ul>
-                <li><strong>Languages:</strong> JavaScript, Python, Java, SQL, HTML5, CSS3</li>
-                <li><strong>Frameworks & Libraries:</strong> Node.js, Express.js, MongoDB, WebSockets</li>
-                <li><strong>Tools:</strong> Git, GitHub, VS Code, Postman, Docker</li>
-                <li><strong>Specializations:</strong> Cybersecurity, API Security, Web Security</li>
-            </ul>
-        </div>
-
-        <!-- EXPERIENCE PAGE -->
-        <div id="experience" class="page">
-            <h2>Professional Experience</h2>
-            
-            <h3>Academic Project: ChatGPT Efficiency Analysis</h3>
-            <p><strong>Role:</strong> Full-Stack Developer & Researcher</p>
-            <p><strong>Duration:</strong> Current (2025)</p>
-            <p><strong>Responsibilities:</strong></p>
-            <ul>
-                <li>Designed and developed multi-page interactive website using HTML5, CSS3, and Vanilla JavaScript</li>
-                <li>Implemented client-side routing with hash-based navigation</li>
-                <li>Created Express.js middleware for API integration and data validation</li>
-                <li>Integrated WebSocket technology for real-time communication</li>
-                <li>Connected MongoDB for persistent data storage</li>
-                <li>Implemented ChatGPT API integration for performance evaluation</li>
-            </ul>
-
-            <h3>Technical Skills Demonstrated</h3>
-            <ul>
-                <li>Full-stack web development (frontend & backend)</li>
-                <li>API design and integration</li>
-                <li>Real-time communication protocols</li>
-                <li>Database design and management</li>
-                <li>Responsive web design and user experience</li>
-            </ul>
-        </div>
-
-        <!-- PROJECT PAGE -->
-        <div id="project" class="page">
-            <h2>Project: ChatGPT Efficiency Analysis</h2>
-            
-            <h2>Objective</h2>
-            <p>
-                This project creates a comprehensive web-based platform to analyze ChatGPT's efficiency, accuracy, and performance
-                across multiple domains (History, Social Science, Computer Security). The website integrates modern web technologies
-                including Node.js middleware, WebSocket communication, and MongoDB database management.
-            </p>
-
-            <h2>Technical Architecture</h2>
-            <h3>Frontend</h3>
-            <ul>
-                <li><strong>Client-Side Routing:</strong> Hash-based navigation (#/about, #/education, #/experience, #/project)</li>
-                <li><strong>Dynamic Character:</strong> Animated assistant providing tips and project information</li>
-                <li><strong>Responsive Design:</strong> Works seamlessly on desktop and mobile devices</li>
-                <li><strong>WebSocket Integration:</strong> Real-time message display and status updates</li>
-            </ul>
-
-            <h3>Backend</h3>
-            <ul>
-                <li><strong>Express.js Server:</strong> Handles HTTP requests and middleware processing</li>
-                <li><strong>API Route:</strong> /api/add?a=2&b=3 validates inputs and returns computed results</li>
-                <li><strong>WebSocket Server:</strong> Manages real-time bidirectional communication</li>
-                <li><strong>MongoDB Integration:</strong> Persists evaluation data and chat history</li>
-            </ul>
-
-            <h2>Key Features</h2>
-            <ul>
-                <li>✅ Multi-page interactive website with smooth navigation</li>
-                <li>✅ Animated assistant character with rotating tips</li>
-                <li>✅ Express middleware for API calculations</li>
-                <li>✅ WebSocket real-time communication</li>
-                <li>✅ Responsive, professional design</li>
-                <li>✅ GitHub Pages deployment</li>
-            </ul>
-
-            <h2>Evaluation Metrics</h2>
-            <p>The project will track:</p>
-            <ul>
-                <li>ChatGPT response latency across domains</li>
-                <li>Accuracy scores for different question types</li>
-                <li>Response completeness and relevance</li>
-                <li>Domain-specific performance trends</li>
-            </ul>
-
-            <!-- WEBSOCKET INTEGRATION SECTION -->
-            <div class="websocket-box">
-                <h3>🔌 Real-Time Communication (WebSocket)</h3>
-                <p>
-                    This section demonstrates real-time bidirectional communication between the client and server using WebSocket technology.
-                    Messages are instantly transmitted and displayed without page reloads.
-                </p>
-
-                <p><strong>Connection Status:</strong> <span id="websocketStatus" style="color: #dc3545; font-weight: bold;">● Disconnected</span></p>
-
-                <h4>Message Display:</h4>
-                <div class="message-display" id="websocketMessages">
-                    <p><em>Waiting for connection...</em></p>
-                </div>
-
-                <h4>Send a Message:</h4>
-                <input 
-                    type="text" 
-                    id="websocketInput" 
-                    placeholder="Type a message and press Enter or click Send (Ctrl+Enter to send)..."
-                    onkeypress="if(event.key==='Enter') sendMessage()"
-                >
-
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <button onclick="sendMessage()">Send Message</button>
-                    <button onclick="clearMessages()">Clear Messages</button>
-                    <button onclick="reconnectWebSocket()">Reconnect</button>
-                </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button onclick="sendMessage()">Send Message</button>
+                <button onclick="clearMessages()">Clear Messages</button>
+                <button onclick="reconnectWebSocket()">Reconnect</button>
             </div>
         </div>
-    </main>
+    </div> <!-- end of PROJECT PAGE -->
+</main>
 
     <!-- FOOTER -->
     <footer>
@@ -264,7 +261,51 @@
         <p id="assistantMessage">Welcome! Explore the project details using the navigation menu.</p>
     </div>
 
+<script>
+    async function fetchResults() {
+        try {
+            const res = await fetch('/api/results');
+            const data = await res.json();
+
+            // Example Chart.js setup
+            const accuracyCtx = document.getElementById('accuracyChart').getContext('2d');
+            new Chart(accuracyCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Computer Security', 'Prehistory', 'Sociology'],
+                    datasets: [{
+                        label: 'Accuracy (%)',
+                        data: [data.computer_security.accuracy, data.prehistory.accuracy, data.sociology.accuracy],
+                        backgroundColor: ['#36A2EB','#FF6384','#FFCE56']
+                    }]
+                }
+            });
+
+            const responseTimeCtx = document.getElementById('responseTimeChart').getContext('2d');
+            new Chart(responseTimeCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Computer Security', 'Prehistory', 'Sociology'],
+                    datasets: [{
+                        label: 'Average Response Time (ms)',
+                        data: [data.computer_security.avgTime, data.prehistory.avgTime, data.sociology.avgTime],
+                        borderColor: '#36A2EB',
+                        fill: false
+                    }]
+                }
+            });
+
+        } catch (err) {
+            console.error('Error fetching results:', err);
+        }
+    }
+    
+
+    fetchResults();
+</script>
+
     <!-- SCRIPTS -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/routing.js"></script>
     <script src="js/assistant.js"></script>
     <script src="js/websocket-client.js"></script>

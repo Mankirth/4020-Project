@@ -17,29 +17,30 @@ console.log('initializing WebSocket');
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/test');
+  await mongoose.connect('mongodb://127.0.0.1:27017/ChatGPT_Evaluation');
 
     const questionSchema = new mongoose.Schema({
-        question: String,
-        A: String,
-        B: String,
-        C: String,
-        D: String,
-        expected_response: String,
-        chatgpt_response: String,
-        domain: String,
-        expected_response: Number,
-        response_time: Number,
-    });
+    question: String,
+    A: String,
+    B: String,
+    C: String,
+    D: String,
+    expected_response: String,
+    chatgpt_response: String,
+    domain: String,
+    response_time: Number,
+});
 
     const Question = mongoose.model('chatgpt_evaluation_questions', questionSchema);
 
-    var compQuestions = await Question.find({domain: 'computer_security'}).limit(50);
-    var historyQuestions = await Question.find({domain: 'prehistory'}).limit(50);
-    var sociologyQuestions = await Question.find({domain: 'sociology'}).limit(50);
-    var compQuestions = askGpt(compQuestions);
-    var historyQuestions = askGpt(historyQuestions);
-    var sociologyQuestions = askGpt(sociologyQuestions);
+   let compQuestions = await Question.find({domain: 'computer_security'}).limit(50);
+let historyQuestions = await Question.find({domain: 'prehistory'}).limit(50);
+let sociologyQuestions = await Question.find({domain: 'sociology'}).limit(50);
+
+compQuestions = askGpt(compQuestions);
+historyQuestions = askGpt(historyQuestions);
+sociologyQuestions = askGpt(sociologyQuestions);
+
     makeChart(compQuestions, historyQuestions, sociologyQuestions);
 }
 
@@ -73,11 +74,25 @@ function makeChart(compQuestions, historyQuestions, sociologyQuestions){
     // });
 }
 
-function askGpt(questions){
-    for(let i = 0; i < 50; i++){
+import OpenAI from 'openai';
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+async function askGpt(questions){
+    for(let i = 0; i < questions.length; i++){
         let currentQ = questions[i];
-        let gptPrompt = currentQ.question + " A." + currentQ.A + " B. " + currentQ.B + " C. " + currentQ.C + " D. " + currentQ.D;
-        //ask chatGPT with prompt, store response and response time
+        let gptPrompt = `${currentQ.question} A.${currentQ.A} B.${currentQ.B} C.${currentQ.C} D.${currentQ.D}`;
+
+        const start = Date.now();
+        const response = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: gptPrompt }]
+        });
+        const end = Date.now();
+
+        currentQ.chatgpt_response = response.choices[0].message.content.trim();
+        currentQ.response_time = end - start;
+
+        await currentQ.save(); // Save directly to MongoDB
     }
     return questions;
 }

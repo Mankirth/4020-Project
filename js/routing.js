@@ -1,69 +1,136 @@
 // ============================================
-// CLIENT-SIDE ROUTING MODULE
+// CLIENT-SIDE ROUTING & CHARTS (Integrated with Unified WebSocket)
 // ============================================
 
 const pages = ['home', 'about', 'education', 'experience', 'project'];
 
-/**
- * Navigate to a specific page using hash-based routing
- * @param {string} hash - The hash to navigate to (e.g., '#/about', '#/')
- */
+// -----------------------------
+// Hash-based Routing
+// -----------------------------
 function navigate(hash) {
     const page = hash.replace('#/', '') || 'home';
-    
-    // Validate page exists
+
     if (!pages.includes(page)) {
         console.warn(`Page "${page}" not found. Redirecting to home.`);
-        navigate('#/');
+        window.location.hash = '#/';
         return;
     }
-    
+
     // Hide all pages
     pages.forEach(p => {
-        const element = document.getElementById(p);
-        if (element) {
-            element.classList.remove('active');
-        }
+        const el = document.getElementById(p);
+        if (el) el.classList.remove('active');
     });
-    
+
     // Show requested page
-    const targetElement = document.getElementById(page);
-    if (targetElement) {
-        targetElement.classList.add('active');
-        console.log(`Navigated to: ${page}`);
-    }
-    
-    // Update URL hash (only if different)
-    if (window.location.hash !== hash) {
-        window.location.hash = hash;
+    const targetEl = document.getElementById(page);
+    if (targetEl) targetEl.classList.add('active');
+
+    // Update URL hash
+    if (window.location.hash !== hash) window.location.hash = hash;
+
+    // Smooth scroll
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Refresh charts if home
+    if (page === 'home') fetchResultsAndUpdateCharts();
+}
+
+window.addEventListener('hashchange', () => navigate(window.location.hash));
+
+// -----------------------------
+// Charts Setup
+// -----------------------------
+let accuracyChart, responseChart;
+
+function initCharts() {
+    const ctxAcc = document.getElementById('accuracyChart').getContext('2d');
+    accuracyChart = new Chart(ctxAcc, {
+        type: 'bar',
+        data: {
+            labels: ['Computer Security', 'Prehistory', 'Sociology'],
+            datasets: [{
+                label: 'Accuracy (%)',
+                data: [0, 0, 0],
+                backgroundColor: ['#3498db', '#2ecc71', '#e74c3c']
+            }]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+    });
+
+    const ctxResp = document.getElementById('responseChart').getContext('2d');
+    responseChart = new Chart(ctxResp, {
+        type: 'bar',
+        data: {
+            labels: ['Computer Security', 'Prehistory', 'Sociology'],
+            datasets: [{
+                label: 'Average Response Time (ms)',
+                data: [0, 0, 0],
+                backgroundColor: ['#3498db', '#2ecc71', '#e74c3c']
+            }]
+        },
+        options: { responsive: true }
+    });
+}
+
+// -----------------------------
+// Fetch results from backend
+// -----------------------------
+async function fetchResultsAndUpdateCharts() {
+    try {
+        const res = await fetch('/api/results');
+        const data = await res.json();
+
+        const results = {
+            computer_security: { accuracy: parseFloat(data.computer_security.accuracy), avgTime: parseFloat(data.computer_security.avgTime) },
+            prehistory: { accuracy: parseFloat(data.prehistory.accuracy), avgTime: parseFloat(data.prehistory.avgTime) },
+            sociology: { accuracy: parseFloat(data.sociology.accuracy), avgTime: parseFloat(data.sociology.avgTime) }
+        };
+
+        // Update chart data
+        accuracyChart.data.datasets[0].data = [
+            results.computer_security.accuracy,
+            results.prehistory.accuracy,
+            results.sociology.accuracy
+        ];
+        responseChart.data.datasets[0].data = [
+            results.computer_security.avgTime,
+            results.prehistory.avgTime,
+            results.sociology.avgTime
+        ];
+
+        accuracyChart.update();
+        responseChart.update();
+    } catch (err) {
+        console.error('❌ Failed to fetch or parse results:', err);
     }
 }
 
-/**
- * Handle hash change events (browser back/forward buttons)
- */
-window.addEventListener('hashchange', () => {
-    navigate(window.location.hash);
+// -----------------------------
+// Reset button
+// -----------------------------
+document.getElementById('resetSessionBtn').addEventListener('click', async () => {
+    try {
+        const res = await fetch('/api/reset', { method: 'POST' });
+        const data = await res.json();
+        if (data.status === 'reset') {
+            accuracyChart.data.datasets[0].data = [0, 0, 0];
+            responseChart.data.datasets[0].data = [0, 0, 0];
+            accuracyChart.update();
+            responseChart.update();
+            alert('Session reset! You can now run /api/run for fresh results.');
+        }
+    } catch (err) {
+        console.error('❌ Failed to reset session:', err);
+    }
 });
 
-/**
- * Initialize routing on page load
- */
+// -----------------------------
+// Page Load
+// -----------------------------
 window.addEventListener('load', () => {
+    initCharts();
     const initialHash = window.location.hash || '#/';
     navigate(initialHash);
-    console.log('Routing initialized');
+    console.log('Routing & charts initialized');
 });
-
-/**
- * Smooth scroll to top when navigating
- */
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
-// Scroll to top when page changes
-window.addEventListener('hashchange', scrollToTop);
