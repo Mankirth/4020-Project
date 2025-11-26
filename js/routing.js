@@ -106,19 +106,32 @@ async function fetchResultsAndUpdateCharts() {
     }
 }
 
+let reset = false;
 // -----------------------------
 // Reset button
 // -----------------------------
 document.getElementById('resetSessionBtn').addEventListener('click', async () => {
     try {
-        const res = await fetch('/api/reset', { method: 'POST' });
-        const data = await res.json();
-        if (data.status === 'reset') {
-            accuracyChart.data.datasets[0].data = [0, 0, 0];
-            responseChart.data.datasets[0].data = [0, 0, 0];
-            accuracyChart.update();
-            responseChart.update();
-            alert('Session reset! You can now run /api/run for fresh results.');
+        if(!reset){
+            const res = await fetch('/api/reset', { method: 'POST' });
+            const data = await res.json();
+            if (data.status === 'reset') {
+                accuracyChart.data.datasets[0].data = [0, 0, 0];
+                responseChart.data.datasets[0].data = [0, 0, 0];
+                accuracyChart.update();
+                responseChart.update();
+                //alert('Session reset! You can now run /api/run for fresh results.');
+            }
+            reset = true;
+            document.getElementById('resetSessionBtn').innerHTML = "Run ChatGPT Evaluation";
+        }
+        else{
+            document.getElementById('resetSessionBtn').innerHTML = "Running...";
+            document.getElementById('resetSessionBtn').disabled = true;
+            await fetch('/api/run', { method: 'GET' });
+            document.getElementById('resetSessionBtn').innerHTML = "Start New Session";
+            document.getElementById('resetSessionBtn').disabled = false;
+            reset = false;
         }
     } catch (err) {
         console.error('❌ Failed to reset session:', err);
