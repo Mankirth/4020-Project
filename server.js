@@ -181,9 +181,9 @@ app.get('/api/run', async (req, res) => {
         console.log(`Found ${hist.length} prehistory questions`);
         console.log(`Found ${soc.length} sociology questions`);
 
-        Promise.all([askGpt(comp, "computer_security"),askGpt(hist, "prehistory"), askGpt(soc, "sociology")]);
-
-        res.json({ status: "completed" });
+        await Promise.all([askGpt(comp, "computer_security"),askGpt(hist, "prehistory"), askGpt(soc, "sociology")]).then(() => {
+            res.json({ status: "completed" });
+        });
     } catch (err) {
         console.error("❌ Error in /api/run:", err);
         res.status(500).json({ error: err.message });
